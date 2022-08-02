@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,20 +35,21 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
 
 
 .mainContainer {
   height: 100vh;
   width: 100%;
-  background-color: chocolate;
+  background-color: whitesmoke;
 }
 .leftSideBar{
   display: flex;
-  width: 150px;
+  flex-direction: column;
 
 
 }
 .rightSideBar{
+  display: flex;
 
 }

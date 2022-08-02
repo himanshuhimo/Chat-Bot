@@ -1,21 +1,31 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import "./contact.css";
+import profileHeader from "./profileHeader";
+import { border, borderRadius } from "@mui/system";
 
 function Contacts(props) {
-  const { name, lastmessage, profilePic, time } = props;
+  const { name, status, lastmessage, profilePic, time } = props;
   return (
-    <Box className="contact1">
-      <Box>
-        <img src={profilePic} width="100px" height="100px" />
+    <>
+      <profileHeader />
+
+      <Box className="contact1">
+        <Box style={{ width: "100px" }}>
+          <img src={profilePic} className="image" />
+        </Box>
+        <Box className="content" style={{ width: "80%" }}>
+          <Typography variant="h6">{name}</Typography>
+          <Typography variant="subtitle1">
+            {status}
+            {lastmessage}
+          </Typography>
+        </Box>
+        <Box style={{ width: "100px" }} className="time">
+          <Typography variant="subtitle2">{time}</Typography>
+        </Box>
       </Box>
-      <Box>
-        <Typography variant="h4">{name}</Typography>
-        <Typography variant="subtitle1">{lastmessage}</Typography>
-      </Box>
-      <Typography variant="subtitle2">{time}</Typography>
-      <Box></Box>
-    </Box>
+    </>
   );
 }
 
