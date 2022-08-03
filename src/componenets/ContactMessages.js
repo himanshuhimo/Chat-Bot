@@ -1,30 +1,14 @@
+import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import "./contactmessages.css";
-function ContactMessages() {
-  return;
-  <Box className="meassages">
-    <p>hii</p>
-    <p>hello0</p>
-    <p>kaisa h</p>
-    <p>badiya tu bta</p>
-    <p>ok</p>
-    <p>hii</p>
-    <p>hello0</p>
-    <p>kaisa h</p>
-    <p>badiya tu bta</p>
-    <p>ok</p>
-    <p>hii</p>
-    <p>hello0</p>
-    <p>kaisa h</p>
-    <p>badiya tu bta</p>
-    <p>ok</p>
-    <p>hii</p>
-    <p>hello0</p>
-    <p>kaisa h</p>
-    <p>badiya tu bta</p>
-    <p>ok</p>
-  </Box>;
+
+function ContactMessages({ message, time, sender }) {
+  return (
+    <Box className="meassages" style={sender ? { backgroundColor: 'rgb(50 51 50 / 73%)' }: { alignItems: 'end', backgroundColor: '#0b5e19' }}>
+      <Typography color={"white"} variant="h6">{message}{time}</Typography>
+    </Box>
+  )
 }
 
 export default ContactMessages;

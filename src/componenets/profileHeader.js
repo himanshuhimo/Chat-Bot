@@ -11,7 +11,7 @@ function Profileheader() {
         />
       </button>
       <button className="newchat">
-        <i className="fa-solid fa-comment-lines"></i>
+        <i class="fa-solid fa-comment"></i>
       </button>
       <button className="menu">
         <i className="fa-solid fa-ellipsis-vertical"></i>
