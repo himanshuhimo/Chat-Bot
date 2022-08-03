@@ -1,15 +1,13 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import "./contact.css";
-import profileHeader from "./profileHeader";
+import Profileheader from "./Profileheader";
 import { border, borderRadius } from "@mui/system";
 
 function Contacts(props) {
   const { name, status, lastmessage, profilePic, time } = props;
   return (
     <>
-      <profileHeader />
-
       <Box className="contact1">
         <Box style={{ width: "100px" }}>
           <img src={profilePic} className="image" />

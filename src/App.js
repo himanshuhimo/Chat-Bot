@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./App.css";
 import ContactMessages from "./componenets/ContactMessages";
 import Contacts from "./componenets/Contacts";
+import Profileheader from "./componenets/Profileheader";
 
 function App() {
   const [data, setData] = useState([
@@ -42,6 +43,8 @@ function App() {
           <Box>Header</Box>
           <Box>
             <Box className="leftSideBar">
+              <Profileheader />
+
               <Contacts />
               {data.map((d) => {
                 console.log(d);

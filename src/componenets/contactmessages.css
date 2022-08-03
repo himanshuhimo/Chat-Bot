@@ -1,0 +1,10 @@
+.messages{
+    
+    display:flex;
+    flex-direction: column;
+    margin: 20px;
+    padding: 10px;
+    width: 100%;
+    border: 1px black solid;
+    /* justify-content: space-around; */
+}
