@@ -1,5 +1,5 @@
 import { Box, Container, Typography } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import ContactMessages from "./componenets/ContactMessages";
 import Contacts from "./componenets/Contacts";
@@ -7,40 +7,50 @@ import Profileheader from "./componenets/ProfileHeader";
 
 function App() {
   const [selectedUser, setselectedUser] = useState(null);
-  const [data, setData] = useState([
-    {
-      name: "Gulfam",
-      userId: '1',
-      lastmessage: "Hi",
-      status: "",
-      profilePic: "https://droidtechknow.com/about/admin.png",
-      time: "11:00pm",
-    },
-    {
-      name: "Kardam",
-      userId: '2',
-      lastmessage: "Heeloo",
-      status: "",
-      profilePic: "https://droidtechknow.com/about/admin.png",
-      time: "1:00",
-    },
-    {
-      name: "Rabina",
-      userId: '3',
-      lastmessage: "Love you baby",
-      status: "",
-      profilePic: "https://droidtechknow.com/about/admin.png",
-      time: "11:00",
-    },
-    {
-      name: "Sunny",
-      userId: '4',  
-      lastmessage: "Kha h??",
-      status: "",
-      profilePic: "https://droidtechknow.com/about/admin.png",
-      time: "8:00",
-    },
-  ]);
+  // const [data, setData] = useState([
+  //   {
+  //     name: "Gulfam Ansari",
+  //     userId: '1',
+  //     lastmessage: "Hi",
+  //     status: "",
+  //     profilePic: "https://droidtechknow.com/about/admin.png",
+  //     time: "11:00pm",
+  //   },
+  //   {
+  //     name: "Kardam",
+  //     userId: '2',
+  //     lastmessage: "Heeloo",
+  //     status: "",
+  //     profilePic: "https://droidtechknow.com/about/admin.png",
+  //     time: "1:00",
+  //   },
+  //   {
+  //     name: "Rabina",
+  //     userId: '3',
+  //     lastmessage: "Love you baby",
+  //     status: "",
+  //     profilePic: "https://droidtechknow.com/about/admin.png",
+  //     time: "11:00",
+  //   },
+  //   {
+  //     name: "Sunny",
+  //     userId: '4',  
+  //     lastmessage: "Kha h??",
+  //     status: "",
+  //     profilePic: "https://droidtechknow.com/about/admin.png",
+  //     time: "8:00",
+  //   },
+  // ]);
+
+  const [data, setData] = useState([]);
+  useEffect(() =>{
+    const respose = fetch("http://localhost:8080/allchats", {
+      "method": "GET",
+    }).then((d) => { return d.json() });
+    respose.then((res) => {
+      setData(res);
+    })
+  }, []);
 
   const [selectedUserData, setselectedUserData] = useState([
     {
@@ -92,6 +102,7 @@ function App() {
           <Box style={{ display: 'flex', }}>
             <Box className="leftSideBar">
               <Profileheader />
+              {data.length == 0 && <Typography color={"white"}>Loading....</Typography>}
               {data.map((d) => {
                 console.log(d);
                 return (
