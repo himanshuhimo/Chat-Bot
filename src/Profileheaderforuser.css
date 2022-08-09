@@ -1,0 +1,14 @@
+.profileheaderofuser{    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: grey;
+}
+.profilepicofuser{
+    
+    border: none                                    ;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    padding: 10px;
+}

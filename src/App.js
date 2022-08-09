@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import ContactMessages from "./componenets/ContactMessages";
 import Contacts from "./componenets/Contacts";
-import Profileheader from "./componenets/ProfileHeader";
+import Profileheader from "./componenets/Profileheader";
+import Profileheaderforuser from "./Profileheaderforuser";
 
 function App() {
   const [selectedUser, setselectedUser] = useState(null);
@@ -34,7 +35,7 @@ function App() {
   //   },
   //   {
   //     name: "Sunny",
-  //     userId: '4',  
+  //     userId: '4',
   //     lastmessage: "Kha h??",
   //     status: "",
   //     profilePic: "https://droidtechknow.com/about/admin.png",
@@ -43,68 +44,76 @@ function App() {
   // ]);
 
   const [data, setData] = useState([]);
-  useEffect(() =>{
+  useEffect(() => {
     const respose = fetch("http://localhost:8080/allchats", {
-      "method": "GET",
-    }).then((d) => { return d.json() });
+      method: "GET",
+    }).then((d) => {
+      return d.json();
+    });
     respose.then((res) => {
       setData(res);
-    })
+    });
   }, []);
 
-  const [selectedUserData, setselectedUserData] = useState([
-    {
-      messages: "hi",
-      time: "8:00 pm",
-      sender: true
-    },
-    {
-      messages: "hello",
-      time: "8:00 pm",
-      sender: false
-    },
-    {
-      messages: "kya hal",
-      time: "8:00 pm",
-      sender: true
-    },
-    {
-      messages: "badiya",
-      time: "8:00 pm",
-      sender: false
-    },
-    {
-      messages: "ok",
-      time: "8:00 pm",
-      sender: true
-    },
-    {
-      messages: "got it",
-      time: "8:00 pm",
-      sender: true
-    }
-  ]);
+  // const [selectedUserData, setselectedUserData] = useState([
+  //   {
+  //     messages: "hi",
+  //     time: "8:00 pm",
+  //     sender: true,
+  //   },
+  //   {
+  //     messages: "hello",
+  //     time: "8:00 pm",
+  //     sender: false,
+  //   },
+  //   {
+  //     messages: "kya hal",
+  //     time: "8:00 pm",
+  //     sender: true,
+  //   },
+  //   {
+  //     messages: "badiya",
+  //     time: "8:00 pm",
+  //     sender: false,
+  //   },
+  //   {
+  //     messages: "ok",
+  //     time: "8:00 pm",
+  //     sender: true,
+  //   },
+  //   {
+  //     messages: "got it",
+  //     time: "8:00 pm",
+  //     sender: true,
+  //   },
+  // ]);
 
   const clickHanlder = (userId) => {
-    const fil = data.filter((d) => {
-      console.log(userId, d)
-      return userId == d.userId
+    const respose = fetch(
+      `http://localhost:8080/getUserData?userid=${userId}`,
+      {
+        method: "GET",
+      }
+    ).then((d) => {
+      return d.json();
     });
-    console.log(fil)
-    setselectedUser(fil[0]);
-  }
+    respose.then((res) => {
+      setselectedUser(res);
+    });
+    console.log(userId);
+  };
 
   return (
     <div className="App">
       <Box className="mainContainer">
         <Box>
-          <Box>Header</Box>
-          <Box style={{ display: 'flex', }}>
+          <Box style={{ display: "flex" }}>
             <Box className="leftSideBar">
               <Profileheader />
-              {data.length == 0 && <Typography color={"white"}>Loading....</Typography>}
+              {data.length == 0 && (
+                <Typography color={"white"}>Loading....</Typography>
+              )}
               {data.map((d) => {
-                console.log(d);
                 return (
                   <Contacts
                     clickHanlder={clickHanlder}
@@ -119,11 +128,24 @@ function App() {
               })}
             </Box>
             <Box className="rightSideBar">
-              <Typography color="white" variant="h2">{selectedUser?.name}</Typography>
-              {selectedUserData.map((d) => {
+              {/* <Profileheader></Profileheader>
+              <Typography color="white" variant="h2">
+                {selectedUser?.name}
+              </Typography> */}
+              <Profileheaderforuser
+                clickHanlder={clickHanlder}
+                username={selectedUser?.name}
+                userprofilepic={selectedUser?.profilePic}
+              />
+
+              {selectedUser?.data.map((d) => {
                 return (
-                  <ContactMessages message={d.messages} sender={d.sender} time={d.time} />
-                )
+                  <ContactMessages
+                    message={d.messages}
+                    sender={d.sender}
+                    time={d.time}
+                  />
+                );
               })}
             </Box>
           </Box>
