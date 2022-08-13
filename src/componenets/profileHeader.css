@@ -2,18 +2,17 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: grey;
+    background-color: #595a5b;
 }
 .menu{
+    font-size: x-large;
+    color: #bdb9ba;
 
-    /* padding-left: 45px;
-    margin-right: 20px;
-    height: 22px;
-    padding-top: 15px; */
 }
 .newchat{
-    /* padding: 15px;
-    margin-left: 180px;   */
+    padding: 15px;
+    font-size: x-large;
+    color: #bdb9ba;
 }
 .profileimage{
     border: none                                    ;
@@ -21,7 +20,9 @@
     height: 50px;
     width: 50px;
     padding: 10px;
+    
 }
 .menu_btn{
-    margin-left: 50%;
+    margin-left: 60%;
+
 }

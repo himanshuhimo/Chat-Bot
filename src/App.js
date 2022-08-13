@@ -4,6 +4,7 @@ import "./App.css";
 import ContactMessages from "./componenets/ContactMessages";
 import Contacts from "./componenets/Contacts";
 import Profileheader from "./componenets/Profileheader";
+import Messageinput from "./Messageinput";
 import Profileheaderforuser from "./Profileheaderforuser";
 
 function App() {
@@ -128,10 +129,6 @@ function App() {
               })}
             </Box>
             <Box className="rightSideBar">
-              {/* <Profileheader></Profileheader>
-              <Typography color="white" variant="h2">
-                {selectedUser?.name}
-              </Typography> */}
               <Profileheaderforuser
                 clickHanlder={clickHanlder}
                 username={selectedUser?.name}
@@ -147,6 +144,8 @@ function App() {
                   />
                 );
               })}
+
+              <Messageinput />
             </Box>
           </Box>
         </Box>

@@ -50,12 +50,13 @@ const selectedUserData = [
 
     data: [
       {
-        messages: "hi gulz",
+        messages: "hi gulz ",
         time: "8:00 pm",
         sender: true,
       },
       {
-        messages: "hello",
+        messages:
+          "hello    onknnklnlknlknknknknklnnksdhnoivshogiy guh ohigo oigj oigoijg itiojsiou oisgj otog otih ",
         time: "8:00 pm",
         sender: false,
       },
