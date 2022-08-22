@@ -4,45 +4,12 @@ import "./App.css";
 import ContactMessages from "./componenets/ContactMessages";
 import Contacts from "./componenets/Contacts";
 import Profileheader from "./componenets/Profileheader";
+import Loginpage from "./Loginpage";
 import Messageinput from "./Messageinput";
 import Profileheaderforuser from "./Profileheaderforuser";
 
 function App() {
   const [selectedUser, setselectedUser] = useState(null);
-  // const [data, setData] = useState([
-  //   {
-  //     name: "Gulfam Ansari",
-  //     userId: '1',
-  //     lastmessage: "Hi",
-  //     status: "",
-  //     profilePic: "https://droidtechknow.com/about/admin.png",
-  //     time: "11:00pm",
-  //   },
-  //   {
-  //     name: "Kardam",
-  //     userId: '2',
-  //     lastmessage: "Heeloo",
-  //     status: "",
-  //     profilePic: "https://droidtechknow.com/about/admin.png",
-  //     time: "1:00",
-  //   },
-  //   {
-  //     name: "Rabina",
-  //     userId: '3',
-  //     lastmessage: "Love you baby",
-  //     status: "",
-  //     profilePic: "https://droidtechknow.com/about/admin.png",
-  //     time: "11:00",
-  //   },
-  //   {
-  //     name: "Sunny",
-  //     userId: '4',
-  //     lastmessage: "Kha h??",
-  //     status: "",
-  //     profilePic: "https://droidtechknow.com/about/admin.png",
-  //     time: "8:00",
-  //   },
-  // ]);
 
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -55,39 +22,6 @@ function App() {
       setData(res);
     });
   }, []);
-
-  // const [selectedUserData, setselectedUserData] = useState([
-  //   {
-  //     messages: "hi",
-  //     time: "8:00 pm",
-  //     sender: true,
-  //   },
-  //   {
-  //     messages: "hello",
-  //     time: "8:00 pm",
-  //     sender: false,
-  //   },
-  //   {
-  //     messages: "kya hal",
-  //     time: "8:00 pm",
-  //     sender: true,
-  //   },
-  //   {
-  //     messages: "badiya",
-  //     time: "8:00 pm",
-  //     sender: false,
-  //   },
-  //   {
-  //     messages: "ok",
-  //     time: "8:00 pm",
-  //     sender: true,
-  //   },
-  //   {
-  //     messages: "got it",
-  //     time: "8:00 pm",
-  //     sender: true,
-  //   },
-  // ]);
 
   const clickHanlder = (userId) => {
     const respose = fetch(
@@ -108,7 +42,8 @@ function App() {
     <div className="App">
       <Box className="mainContainer">
         <Box>
-          <Box style={{ display: "flex" }}>
+          <Loginpage />
+          {/* <Box style={{ display: "flex" }}>
             <Box className="leftSideBar">
               <Profileheader />
               {data.length == 0 && (
@@ -147,7 +82,7 @@ function App() {
 
               <Messageinput />
             </Box>
-          </Box>
+          </Box> */}
         </Box>
       </Box>
     </div>
@@ -155,3 +90,5 @@ function App() {
 }
 
 export default App;
+
+// mongodb+srv://himanshuhimo:<password>@cluster0.7ub6dfv.mongodb.net/?retryWrites=true&w=majority

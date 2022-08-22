@@ -1,0 +1,62 @@
+.formbox1 {
+  border: 1px solid black;
+  background-color: aquamarine;
+  height: 62vh;
+  width: 35vw;
+  padding: 15px;
+  margin-left: 28vw;
+  position: absolute;
+  z-index: 1;
+  margin-top: -88vh;
+}
+.closebtn1 {
+  margin-top: -28px;
+  margin-left: 35vw;
+  width: 20px;
+  padding: 3px;
+  float: left;
+  border: none;
+  border-radius: 50%;
+}
+.formdata1 {
+  display: flex;
+  flex-direction: column;
+  /* margin-left: 15px; */
+
+  /* border: 1px solid black;
+  background-color: aquamarine;
+  height: 40vh;
+  width: 40vw;
+  padding: 15px;
+  margin-left: 28vw;
+  position: absolute;
+  z-index: 1;
+  margin-top: -80vh; */
+}
+.labels1 {
+  padding: 10px 0px;
+  font-size: large;
+  font-weight: 500;
+  color: black;
+}
+.inputs1 {
+  border: none;
+  height: 25px;
+  border-radius: 5px;
+  padding: 5px;
+}
+.submitlogin1 {
+  width: 124px;
+  height: 43px;
+  border: none;
+  background: red;
+  margin-top: 33px;
+  margin-left: 13vw;
+  border-radius: 5px;
+  font-size: x-large;
+  color: white;
+}
+.profilepicbutton {
+  height: 25px;
+  width: 80px;
+}

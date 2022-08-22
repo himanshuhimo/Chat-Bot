@@ -1,0 +1,32 @@
+.login {
+  background-image: url(https://venngage-wordpress.s3.amazonaws.com/uploads/2018/09/Colorful-Geometric-Simple-Background-Image.jpg);
+  height: 100vh;
+  background-size: cover;
+}
+.firstbox {
+  display: flex;
+  margin: 50px;
+
+  border: 1px solid brown;
+  padding-left: 35px;
+  height: 100vh;
+}
+.logo {
+}
+.btn1 {
+  margin: 15px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  height: 35px;
+  float: left;
+  margin-left: 65%;
+}
+.btn2 {
+  margin: 15px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  height: 35px;
+  float: left;
+}

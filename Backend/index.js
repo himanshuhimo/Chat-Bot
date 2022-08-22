@@ -3,6 +3,17 @@ var app = express();
 var cors = require("cors");
 const { request } = require("express");
 
+var { createUserEntry } = require("./database");
+
+// app.use(express.urlencoded());
+
+// // Parse JSON bodies (as sent by API clients)
+// app.use(express.json());
+
+const bodyParser = require("body-parser");
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(cors());
 
 const users = [
@@ -149,14 +160,20 @@ app.get("/allchats", function (req, res) {
 
 app.get("/getUserData", function (req, res) {
   var userid = req.query.userid;
-  // res.json({
-  //   userid,
-  // });
-
   res.send(JSON.stringify(selectedUserData[userid - 1]));
-
   res.end();
 });
+
+app.post("/addusers", function (req, res) {
+  createUserEntry(req.body).then((abc) => {
+    res.send(JSON.stringify(abc));
+  });
+});
+
+// app.post("/addusers", function (req, res) {
+//   console.log(req.body);
+//   res.send(req.body);
+// });
 
 var server = app.listen(8080, function () {
   console.log(

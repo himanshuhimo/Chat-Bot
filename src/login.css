@@ -1,0 +1,47 @@
+.formdata {
+  border: 1px solid black;
+  background-color: aquamarine;
+  height: 30vh;
+  width: 40vw;
+  padding: 15px;
+  margin-left: 27vh;
+  position: absolute;
+  z-index: 1;
+  margin-top: -80vh;
+}
+.inputs {
+  border: none;
+  height: 25px;
+  border-radius: 5px;
+  padding: 5px;
+}
+.labels {
+  padding: 10px 0px;
+  font-size: large;
+  font-weight: 500;
+}
+.submitlogin {
+  width: 124px;
+  height: 43px;
+  border: none;
+  background: red;
+  margin-top: 33px;
+  margin-left: 13vw;
+  border-radius: 5px;
+  font-size: x-large;
+  color: white;
+}
+.closebtn {
+  margin-top: -28px;
+  margin-left: 40vw;
+  width: 20px;
+  padding: 3px;
+  float: left;
+  border: none;
+  border-radius: 50%;
+}
+.formcontent {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
