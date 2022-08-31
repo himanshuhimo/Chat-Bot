@@ -3,7 +3,7 @@ var app = express();
 var cors = require("cors");
 const { request } = require("express");
 
-var { createUserEntry } = require("./database");
+var { createUserEntry, getDataFromDB } = require("./database");
 var { Getuserentry } = require("./Getuserentry");
 
 // app.use(express.urlencoded());
@@ -170,6 +170,59 @@ app.post("/addusers", function (req, res) {
     res.send(JSON.stringify(abc));
   });
 });
+
+app.get("/fetchUser", function (req, res) {
+  var userid = req.query.userId;
+  getDataFromDB(userid).then((abc) => {
+    res.send(JSON.stringify(abc));
+  }, (err) => {
+    res.send(JSON.stringify({ error: true, message: "Something went wrong"}));
+  });
+});
+
+app.get("/allRecentContactChats", function (req, res) {
+  let data = [];
+  for (let id of ids.req.ids) {
+    getDataFromDB(userid).then((abc) => {
+      data.push(abc);
+    });
+  }
+  res.send(JSON.stringify(data));
+});
+
+// 1. Add search functionality to add the connections
+// 2. Onclick of add new connection button, call an API to add the connection
+// 3. Make add connection API
+// 4. Create left sidebar data using the connection Ids. [9868471128, 87733001988, 7894028261]
+// 5. Create an API that provide the left sidebar data using the connection ids
+
+
+// [
+//   {
+//     _id: new ObjectId("62f7e6a6055dab32b8cba963"),
+//     name: 'Gulfam ',
+//     userId: '9868471128',
+//     lastmessage: '',
+//     status: '',
+//     profilePic: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+//     time: '',
+//     connectedUsers: [{
+//       userId: 8750414664,
+//       messages: [
+//         {
+//           messages: "hi gulz ",
+//           time: "8:00 pm",
+//           sender: true,
+//         },
+//         {
+//           messages: "hi gulz ",
+//           time: "8:00 pm",
+//           sender: true,
+//         }
+//       ]
+//     }]
+//   }
+// ]
 
 // getData//
 // app.get("/addusers", function (req, res) {

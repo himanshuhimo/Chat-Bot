@@ -6,6 +6,8 @@ import "./createaccount.css";
 
 function Createaccount(props) {
   const url = "http://localhost:8080/addusers";
+  const url2 = "http://localhost:8080/fetchUser";
+
   const [data, setData] = useState({
     name: "",
     phoneno: "",
@@ -21,14 +23,12 @@ function Createaccount(props) {
     const newdata = { ...data };
     newdata[e.target.id] = e.target.value;
     setData(newdata);
-    console.log(newdata);
   };
 
   function submitForm(e) {
     e.preventDefault();
     if (data.password === data.confirmpassword) {
       sendDetailsToDb();
-      alert("user added");
       // props.closeDiv("");
     } else {
       alert("Password not matched");
@@ -36,13 +36,23 @@ function Createaccount(props) {
   }
 
   const sendDetailsToDb = () => {
-    Axios.post(url, {
-      name: data.name,
-      phoneno: data.phoneno,
-      password: data.password,
-    }).then((res) => {
-      console.log(res.data);
-    });
+    Axios.get(url2 + "?userId=" + data.phoneno)
+      .then((res) => {
+        if (res.data.length) {
+          alert("UserAlready Exist");
+        } else {
+          Axios.post(url, {
+            name: data.name,
+            userId: data.phoneno,
+            password: data.password,
+            connectedUsers: [],
+            lastmessage: "",
+            time: "",
+          }).then((res) => {
+            alert("User added");
+          });
+        }
+      })
   };
 
   return (

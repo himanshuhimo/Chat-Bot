@@ -2,8 +2,12 @@ import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import "./login.css";
 import { useNavigate } from "react-router-dom";
+import Axios from "axios";
 
 function Login(props) {
+  const url2 = "http://localhost:8080/fetchUser";
+
+
   let navigate = useNavigate();
   const [item, setItem] = useState({
     phoneno: "",
@@ -15,12 +19,21 @@ function Login(props) {
     setItem({ ...item, [id]: value });
   };
 
-  useEffect(() => {
-    console.log(item);
-  });
 
   const submitForm = () => {
-    navigate("home");
+    Axios.get(url2 + "?userId=" + item.phoneno).then((res) => {
+      if (res.data.length === 0) {
+        alert("User does not exist");
+        return;
+      } 
+      const { userId = "", password = "" } = res?.data[0];
+      if (password !== item.password) {
+        alert("Username or password is incorrect");
+      } else {
+        navigate("home");
+      }
+    }, (err) => {
+    })
   };
 
   return (
@@ -46,7 +59,7 @@ function Login(props) {
             onChange={handleChange}
             className="inputs"
           />
-          <button type="submit" onClick={submitForm} className="submitlogin">
+          <button type="button" onClick={submitForm} className="submitlogin">
             Submit
           </button>
         </Box>

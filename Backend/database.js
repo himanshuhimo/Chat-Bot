@@ -35,4 +35,22 @@ const createUserEntry = (data) => {
   });
 };
 
-module.exports = { createUserEntry };
+const getDataFromDB = (userId) => {
+  return new Promise((resolve, rej) => {
+    MongoClient.connect(url, (err, db) => {
+      if (err) {
+        console.log(err);
+        rej(err);
+      }
+      var dbo = db.db("chatbot");
+      var query = { userId };
+      dbo.collection("users").find(query).toArray((err, result) => {
+        if (err) rej(err);
+        db.close();
+        resolve(result);
+      });
+    });
+  });
+};
+
+module.exports = { createUserEntry, getDataFromDB };
