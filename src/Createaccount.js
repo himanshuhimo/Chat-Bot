@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import "./createaccount.css";
 
-function Createaccount(closeDiv) {
+function Createaccount(props) {
   const url = "http://localhost:8080/addusers";
   const [data, setData] = useState({
     name: "",
@@ -23,22 +23,13 @@ function Createaccount(closeDiv) {
     setData(newdata);
     console.log(newdata);
   };
-  // useEffect(() => {
-  //   console.log("data");
-  //   fetch("/addusers")
-  //     .then((res) => {
-  //       if (res.ok) {
-  //         return res.json();
-  //       }
-  //     })
-  //     .then((jsonRes) => setData(jsonRes.getUserData));
-  // });
 
   function submitForm(e) {
     e.preventDefault();
     if (data.password === data.confirmpassword) {
       sendDetailsToDb();
       alert("user added");
+      // props.closeDiv("");
     } else {
       alert("Password not matched");
     }
@@ -57,7 +48,7 @@ function Createaccount(closeDiv) {
   return (
     <div>
       <div className="formbox1">
-        <button className="closebtn1" onClick={closeDiv}>
+        <button className="closebtn1" onClick={props.closeDiv}>
           X
         </button>
         <form className="formdata1">

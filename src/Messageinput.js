@@ -6,9 +6,9 @@ function Messageinput() {
       <input className="inputfield"></input>
       <span>
         <button type="submit" className="sendbutton">
-          {/* <i class="fa-solid fa-paper-plane-top"></i> */}
           {/* <FontAwesomeIcon icon="fa-solid fa-paper-plane-top" /> */}
-          send
+          <i className="fa-solid fa-paper-plane-top" /> send
+          <i className="fa-light fa-arrow-right-to-arc"></i>
         </button>
       </span>
     </div>

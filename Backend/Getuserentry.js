@@ -2,7 +2,7 @@ var MongoClient = require("mongodb").MongoClient;
 var url =
   "mongodb+srv://himanshuhimo:himanshu@cluster0.7ub6dfv.mongodb.net/?retryWrites=true&w=majority";
 
-const createUserEntry = (data) => {
+const Getuserentry = (data) => {
   return new Promise((resolve, rej) => {
     MongoClient.connect(url, (err, db) => {
       if (err) {
@@ -10,15 +10,6 @@ const createUserEntry = (data) => {
         rej(err);
       }
       var dbo = db.db("chatbot");
-      dbo.collection("users").insertOne(data, (err, res) => {
-        if (err) {
-          console.log(err);
-          rej(err);
-        }
-        console.log(data, "added");
-        db.close();
-        resolve({ status: "success " });
-      });
       dbo
         .collection("users")
         .find({ data })
@@ -27,7 +18,7 @@ const createUserEntry = (data) => {
             console.log(err);
             rej(err);
           }
-          console.log(res, "found");
+          console.log(data, "found");
           db.close();
           resolve({ status: "yup " });
         });
@@ -35,4 +26,19 @@ const createUserEntry = (data) => {
   });
 };
 
-module.exports = { createUserEntry };
+module.exports = { Getuserentry };
+
+// Find all documents in the customers collection:
+
+// var MongoClient = require('mongodb').MongoClient;
+// var url = "mongodb://localhost:27017/";
+
+// MongoClient.connect(url, function(err, db) {
+//   if (err) throw err;
+//   var dbo = db.db("mydb");
+//   dbo.collection("customers").find({}).toArray(function(err, result) {
+//     if (err) throw err;
+//     console.log(result);
+//     db.close();
+//   });
+// });

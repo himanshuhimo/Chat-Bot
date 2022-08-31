@@ -1,8 +1,9 @@
 import { Box } from "@mui/system";
-import React, { useEffect, useState, useNavigate } from "react";
+import React, { useEffect, useState } from "react";
 import "./login.css";
+import { useNavigate } from "react-router-dom";
 
-function Login(closeDiv) {
+function Login(props) {
   let navigate = useNavigate();
   const [item, setItem] = useState({
     phoneno: "",
@@ -19,14 +20,13 @@ function Login(closeDiv) {
   });
 
   const submitForm = () => {
-    
-
+    navigate("home");
   };
 
   return (
     <div>
       <form className="formdata">
-        <button className="closebtn" onClick={closeDiv}>
+        <button className="closebtn" onClick={props.closeDiv}>
           X
         </button>
         <Box className="formcontent">
@@ -34,14 +34,16 @@ function Login(closeDiv) {
           <input
             type="text"
             id="phoneno"
-            onChange="handleChange"
+            value={item.phoneno}
+            onChange={handleChange}
             className="inputs"
           />
           <label className="labels">Password</label>
           <input
             type="text"
             id="password"
-            onChange="handleChange"
+            value={item.password}
+            onChange={handleChange}
             className="inputs"
           />
           <button type="submit" onClick={submitForm} className="submitlogin">

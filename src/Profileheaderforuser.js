@@ -13,8 +13,11 @@ function Profileheaderforuser(props) {
     <div className="profileheaderofuser">
       <img src={userprofilepic} alt="userimage" className="profilepicofuser" />
       <Typography variant="h4">{username}</Typography>
-      {/* <i className="fa-regular fa-magnifying-glass"></i> */}
-      {/* <FontAwesomeIcon icon="fa-regular fa-magnifying-glass" /> */}
+      {/* <i className="fa-regular fa-magnifying-glass"></i>
+      <FontAwesomeIcon icon="fa-regular fa-magnifying-glass" /> */}
+      <button className="menuright">
+        <i className="fa-solid fa-ellipsis-vertical " />
+      </button>
     </div>
   );
 }

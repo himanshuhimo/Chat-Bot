@@ -1,15 +1,22 @@
-.profileheaderofuser{    
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background-color: #595a5b;
-    /* color: white; */
+.profileheaderofuser {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #595a5b;
+  /* color: white; */
 }
-.profilepicofuser{
-    
-    border: none                                    ;
-    border-radius: 50%;
-    height: 50px;
-    width: 50px;
-    padding: 10px;
+.profilepicofuser {
+  border: none;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  padding: 10px;
+}
+.menuright {
+  color: black;
+  font-size: x-large;
+  margin-left: 75%;
+  cursor: pointer;
+  border: none;
+  background: none;
 }

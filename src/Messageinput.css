@@ -1,17 +1,15 @@
-.inputfield{
-    width: 54%;
-    height: 48px;
-    border: none;
-    border-radius: 40px;
-    margin-left: 100px;
-    position: fixed;
-    bottom: 115px;
-
+.inputfield {
+  width: 54%;
+  height: 48px;
+  border: none;
+  border-radius: 40px;
+  margin-left: 100px;
+  position: fixed;
+  bottom: 115px;
 }
-.sendbutton{
-    position: fixed;
-    bottom: 128px;
-    margin-left: 890px;
-
-
+.sendbutton {
+  position: fixed;
+  bottom: 128px;
+  margin-left: 62%;
+  border: none;
 }

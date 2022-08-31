@@ -4,6 +4,7 @@ var cors = require("cors");
 const { request } = require("express");
 
 var { createUserEntry } = require("./database");
+var { Getuserentry } = require("./Getuserentry");
 
 // app.use(express.urlencoded());
 
@@ -170,9 +171,18 @@ app.post("/addusers", function (req, res) {
   });
 });
 
-// app.post("/addusers", function (req, res) {
-//   console.log(req.body);
-//   res.send(req.body);
+// getData//
+// app.get("/addusers", function (req, res) {
+// (req.body).then((abc) => {
+// var abc = Getuserentry(data);
+// res.send(JSON.stringify(abc));
+// });
+// });
+
+// app.get("/addusers", function (req, res) {
+//   createUserEntry(req.body).then((abc) => {
+//     res.send(JSON.parse(abc));
+//   });
 // });
 
 var server = app.listen(8080, function () {
