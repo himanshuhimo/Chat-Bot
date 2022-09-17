@@ -36,23 +36,23 @@ function Createaccount(props) {
   }
 
   const sendDetailsToDb = () => {
-    Axios.get(url2 + "?userId=" + data.phoneno)
-      .then((res) => {
-        if (res.data.length) {
-          alert("UserAlready Exist");
-        } else {
-          Axios.post(url, {
-            name: data.name,
-            userId: data.phoneno,
-            password: data.password,
-            connectedUsers: [],
-            lastmessage: "",
-            time: "",
-          }).then((res) => {
-            alert("User added");
-          });
-        }
-      })
+    Axios.get(url2 + "?userId=" + data.phoneno).then((res) => {
+      if (res.data.length) {
+        alert("UserAlready Exist");
+      } else {
+        Axios.post(url, {
+          name: data.name,
+          userId: data.phoneno,
+          password: data.password,
+          connectedUsers: [],
+          lastmessage: "",
+          time: "",
+        }).then((res) => {
+          alert("User added");
+          props.closeDiv();
+        });
+      }
+    });
   };
 
   return (

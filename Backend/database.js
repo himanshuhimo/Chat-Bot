@@ -19,18 +19,6 @@ const createUserEntry = (data) => {
         db.close();
         resolve({ status: "success " });
       });
-      dbo
-        .collection("users")
-        .find({ data })
-        .toArray((err, res) => {
-          if (err) {
-            console.log(err);
-            rej(err);
-          }
-          console.log(res, "found");
-          db.close();
-          resolve({ status: "yup " });
-        });
     });
   });
 };
@@ -44,11 +32,14 @@ const getDataFromDB = (userId) => {
       }
       var dbo = db.db("chatbot");
       var query = { userId };
-      dbo.collection("users").find(query).toArray((err, result) => {
-        if (err) rej(err);
-        db.close();
-        resolve(result);
-      });
+      dbo
+        .collection("users")
+        .find(query)
+        .toArray((err, result) => {
+          if (err) rej(err);
+          db.close();
+          resolve(result);
+        });
     });
   });
 };

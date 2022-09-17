@@ -4,12 +4,6 @@ var cors = require("cors");
 const { request } = require("express");
 
 var { createUserEntry, getDataFromDB } = require("./database");
-var { Getuserentry } = require("./Getuserentry");
-
-// app.use(express.urlencoded());
-
-// // Parse JSON bodies (as sent by API clients)
-// app.use(express.json());
 
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
@@ -173,11 +167,16 @@ app.post("/addusers", function (req, res) {
 
 app.get("/fetchUser", function (req, res) {
   var userid = req.query.userId;
-  getDataFromDB(userid).then((abc) => {
-    res.send(JSON.stringify(abc));
-  }, (err) => {
-    res.send(JSON.stringify({ error: true, message: "Something went wrong"}));
-  });
+  getDataFromDB(userid).then(
+    (abc) => {
+      res.send(JSON.stringify(abc));
+    },
+    (err) => {
+      res.send(
+        JSON.stringify({ error: true, message: "Something went wrong" })
+      );
+    }
+  );
 });
 
 app.get("/allRecentContactChats", function (req, res) {
@@ -195,48 +194,6 @@ app.get("/allRecentContactChats", function (req, res) {
 // 3. Make add connection API
 // 4. Create left sidebar data using the connection Ids. [9868471128, 87733001988, 7894028261]
 // 5. Create an API that provide the left sidebar data using the connection ids
-
-
-// [
-//   {
-//     _id: new ObjectId("62f7e6a6055dab32b8cba963"),
-//     name: 'Gulfam ',
-//     userId: '9868471128',
-//     lastmessage: '',
-//     status: '',
-//     profilePic: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
-//     time: '',
-//     connectedUsers: [{
-//       userId: 8750414664,
-//       messages: [
-//         {
-//           messages: "hi gulz ",
-//           time: "8:00 pm",
-//           sender: true,
-//         },
-//         {
-//           messages: "hi gulz ",
-//           time: "8:00 pm",
-//           sender: true,
-//         }
-//       ]
-//     }]
-//   }
-// ]
-
-// getData//
-// app.get("/addusers", function (req, res) {
-// (req.body).then((abc) => {
-// var abc = Getuserentry(data);
-// res.send(JSON.stringify(abc));
-// });
-// });
-
-// app.get("/addusers", function (req, res) {
-//   createUserEntry(req.body).then((abc) => {
-//     res.send(JSON.parse(abc));
-//   });
-// });
 
 var server = app.listen(8080, function () {
   console.log(

@@ -1,11 +1,12 @@
-import Loginpage from "./Loginpage";
+import Loginpage from "./componenets/Loginpage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Mainpage from "./Mainpage";
+import Mainpage from "./componenets/Mainpage";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* <Route path="/" element={<Loginpage />} /> */}
         <Route path="/" element={<Loginpage />} />
         <Route path="home" element={<Mainpage />} />
       </Routes>
