@@ -37,20 +37,21 @@
   }
 } */
 
-
 .mainContainer {
   height: 100vh;
   width: 100%;
   background-color: #111311;
+  background-image: url(https://t4.ftcdn.net/jpg/02/00/68/69/360_F_200686968_KS9NVTJgvjMQs2FniVHyIJaAIcg5p7D0.jpg);
+  background-size: cover;
 }
-.leftSideBar{
+.leftSideBar {
   display: flex;
-    flex-direction: column;
-    width: 30%;
-    border: solid 1px #494545;
-    height: calc(100vh - 100px);
+  flex-direction: column;
+  width: 30%;
+  border: solid 1px #494545;
+  height: calc(100vh - 100px);
 }
-.rightSideBar{
+.rightSideBar {
   display: flex;
   height: calc(100vh - 100px);
   width: 70%;

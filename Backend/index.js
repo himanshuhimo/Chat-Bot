@@ -62,7 +62,7 @@ const selectedUserData = [
       },
       {
         messages:
-          "hello    onknnklnlknlknknknknklnnksdhnoivshogiy guh ohigo oigj oigoijg itiojsiou oisgj otog otih ",
+          "hello onknnklnlknl knknknknklnnksd hnoivshogiy guh ohigo oigj oigoijg itiojsiou oisgj otog otih ",
         time: "8:00 pm",
         sender: false,
       },
@@ -188,6 +188,8 @@ app.get("/allRecentContactChats", function (req, res) {
   }
   res.send(JSON.stringify(data));
 });
+
+app.post("/addUsers");
 
 // 1. Add search functionality to add the connections
 // 2. Onclick of add new connection button, call an API to add the connection

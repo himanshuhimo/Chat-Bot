@@ -19,15 +19,15 @@ function ContactMessages({ message, time, sender }) {
               marginTop: "15px",
             }
           : {
-              alignItems: "end",
+              // alignItems: "end",
               backgroundColor: "#0b5e19",
               width: "40%",
               marginLeft: "57%",
             }
       }
     >
-      <Typography color={"white"} variant="h6">
-        <>{message}</>
+      <Typography color={"white"} variant="h6" paddingLeft={"2px"}>
+        <div>{message}</div>
         <span className="time">{time}</span>
       </Typography>
     </Box>

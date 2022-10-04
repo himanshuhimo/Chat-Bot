@@ -1,28 +1,29 @@
-.profileheader{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background-color: #595a5b;
+.profileheader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #595a5b;
 }
-.menu{
-    font-size: x-large;
-    color: #bdb9ba;
-
+.menu {
+  font-size: x-large;
+  color: #bdb9ba;
 }
-.newchat{
-    padding: 15px;
-    font-size: x-large;
-    color: #bdb9ba;
+.newchat {
+  /* padding: 15px; */
+  font-size: x-large;
+  color: #bdb9ba;
+  margin-right: 5px;
 }
-.profileimage{
-    border: none                                    ;
-    border-radius: 50%;
-    height: 50px;
-    width: 50px;
-    padding: 10px;
-    
+.profileimage {
+  border: none;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  padding: 10px;
 }
-.menu_btn{
-    margin-left: 60%;
-
+.menu_btn {
+  margin-left: 58%;
+}
+.inputbutton {
+  background: none;
 }

@@ -2,11 +2,12 @@ import React from "react";
 import "./App.css";
 import { Box, Container, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-import ContactMessages from "./componenets/ContactMessages";
-import Contacts from "./componenets/Contacts";
-import Profileheader from "./componenets/Profileheader";
+import ContactMessages from "./ContactMessages";
+import Contacts from "./Contacts";
+import Profileheader from "./Profileheader";
 import Messageinput from "./Messageinput";
 import Profileheaderforuser from "./Profileheaderforuser";
+import Inputbox from "./Inputbox";
 
 function Mainpage() {
   const [selectedUser, setselectedUser] = useState(null);
@@ -45,6 +46,7 @@ function Mainpage() {
           <Box style={{ display: "flex" }}>
             <Box className="leftSideBar">
               <Profileheader />
+              <Inputbox />
               {data.length == 0 && (
                 <Typography color={"white"}>Loading....</Typography>
               )}

@@ -15,8 +15,9 @@
 .menuright {
   color: black;
   font-size: x-large;
-  margin-left: 75%;
+  margin-left: 65%;
   cursor: pointer;
   border: none;
   background: none;
+  position: fixed;
 }

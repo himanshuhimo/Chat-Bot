@@ -17,9 +17,6 @@ function Createaccount(props) {
   });
 
   const handleChange = (e) => {
-    // const { id, value } = e.target;
-    // setData({ ...data, [id]: value });
-
     const newdata = { ...data };
     newdata[e.target.id] = e.target.value;
     setData(newdata);

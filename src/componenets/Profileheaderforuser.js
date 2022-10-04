@@ -1,7 +1,5 @@
 import { Typography } from "@mui/material";
 import React from "react";
-import { useState } from "react";
-import Contacts from "./componenets/Contacts";
 import "./Profileheaderforuser.css";
 import { faFontAwesome } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
