@@ -65,11 +65,15 @@ function Mainpage() {
               })}
             </Box>
             <Box className="rightSideBar">
-              <Profileheaderforuser
-                clickHanlder={clickHanlder}
-                username={selectedUser?.name}
-                userprofilepic={selectedUser?.profilePic}
-              />
+              {clickHanlder ? (
+                <Profileheaderforuser
+                  clickHanlder={clickHanlder}
+                  username={selectedUser?.name}
+                  userprofilepic={selectedUser?.profilePic}
+                />
+              ) : (
+                <Typography color={"white"}>nothing</Typography>
+              )}
 
               {selectedUser?.data.map((d) => {
                 return (

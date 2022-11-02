@@ -1,3 +1,8 @@
 .inputbtn {
-  width: 70%;
+  width: 96%;
+  height: 20px;
+  margin: 4px;
+  border: none;
+  border-radius: 5px;
+  background: lightgoldenrodyellow;
 }

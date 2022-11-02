@@ -5,8 +5,6 @@
 }
 .firstbox {
   display: flex;
-  margin: 50px;
-
   border: 1px solid brown;
   padding-left: 35px;
   height: 100vh;
